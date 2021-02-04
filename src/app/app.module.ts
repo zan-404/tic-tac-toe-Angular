@@ -19,7 +19,7 @@ import { IconComponent } from './components/icon/icon.component';
     AppRoutingModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    ToastrModule
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

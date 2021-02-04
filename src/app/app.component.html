@@ -1,6 +1,76 @@
+
+
+
 <div class="container">
-  <h1 class="display-2">
-    Heyy component
-  </h1>
+  
+  
+  <div class="row justify-content-center align-items-center">
+    
+    <div class="col col-lg-6">
+      <div class="text-center ">
+        <h1 [hidden]='isCross' class="uppercase text-white card bg-danger card-box box">
+          Player One Turn <br>
+
+        </h1>
+
+        <h1 [hidden]='!isCross' class="uppercase text-white card bg-danger card-box box">
+          Player Two Turn <br>
+        </h1>
+      </div>
+      <br>
+
+
+      <div class="grid">
+        <div *ngFor="let item of itemArray; index as i;">
+          <div class="card">
+            <div class="card-box box" (click)=" handleClick(i)">
+              <app-icon [iconName]='item'> </app-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-lg-6 text-center" >
+      <div class="text-center pt-3" *ngIf="!winMessage && !reload">
+        <h1> Player One -  <fa-icon [icon]="faCircle" class="icon text-warning"></fa-icon> <br><br>
+          Player Two -  <fa-icon [icon]="faTimes" class="icon text-info"></fa-icon> </h1>
+        
+      </div> 
+
+      <div *ngIf="winMessage">
+
+      <h1 class="text-uppercase" style="font-weight: bolder;"> 
+        Game Over &nbsp;&nbsp; {{ winMessage}}
+      </h1>
+       
+
+      <br><br>
+      <button class="btn btn-danger text-uppercase pl-5 pr-5" 
+       (click)="reloadGame()"  > Reload Game 
+
+
+      </button>
+    </div>
+
+    <div *ngIf="reload">
+
+      <h1 class="text-uppercase" style="font-weight: bolder;"> 
+        Game Draw 
+      </h1>
+       
+
+      <br><br>
+      <button class="btn btn-danger text-uppercase pl-5 pr-5" 
+       (click)="reloadGame()"  > Reload Game 
+
+
+      </button>
+    </div>
+
+
+    </div>
+   
+  </div>
   
 </div>
